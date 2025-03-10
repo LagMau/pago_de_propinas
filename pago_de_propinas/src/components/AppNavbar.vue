@@ -1,29 +1,33 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
-const selectedIcon = ref(null);
-  const iconsTop = [
-    { name: "chart", icon: "fa-chart-pie" },
-    { name: "calc", icon: "fa-calculator" },
-    { name: "newspaper", icon: "fa-newspaper" },
-    { name: "coin", icon: "fa-circle-dollar-to-slot" },
-    { name: "book", icon: "fa-book" },
-    { name: "building", icon: "fa-building" },
-    { name: "desktop", icon: "fa-desktop" },
-    { name: "coins", icon: "fa-coins" },
-    { name: "list", icon: "fa-clipboard-list" },
-    { name: "user", icon: "fa-user" }
-  ];
+interface IconItem {
+  name: string;
+  icon: string;
+}
 
-  const iconsBottom = [
-    { name: "settings", icon: "fa-gear" },
-    { name: "logout", icon: "fa-right-from-bracket" }
-  ];
+const selectedIcon = ref<string | null>(null);
+const iconsTop: IconItem[] = [
+  { name: "chart", icon: "fa-chart-pie" },
+  { name: "calc", icon: "fa-calculator" },
+  { name: "newspaper", icon: "fa-newspaper" },
+  { name: "coin", icon: "fa-circle-dollar-to-slot" },
+  { name: "book", icon: "fa-book" },
+  { name: "building", icon: "fa-building" },
+  { name: "desktop", icon: "fa-desktop" },
+  { name: "coins", icon: "fa-coins" },
+  { name: "list", icon: "fa-clipboard-list" },
+  { name: "user", icon: "fa-user" }
+];
 
-  const selectIcon = (iconName) => {
-    selectedIcon.value = iconName;
-  };
+const iconsBottom: IconItem[] = [
+  { name: "settings", icon: "fa-gear" },
+  { name: "logout", icon: "fa-right-from-bracket" }
+];
 
+const selectIcon = (iconName: string) => {
+  selectedIcon.value = iconName;
+};
 </script>
 
 <template>
